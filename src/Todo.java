@@ -12,6 +12,7 @@ Tasks:
 5. Write HealthyPerson Class
 6. Test with JUnit
 7. Debug and Clean Up Code
+8. JAVADOCS
 
 Estimated Time (minutes):
 1. 50
@@ -21,14 +22,16 @@ Estimated Time (minutes):
 5. 20
 6. 30
 7. 15
+8. 
 
 Actual Time (minutes):
-1. 
+1. 10 + 
 2. 
 3. 
 4. 
 5. 
 6. 
-7.  
+7. 
+8.   
 
 */}

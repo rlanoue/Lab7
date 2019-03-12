@@ -21,9 +21,9 @@ public class StackHospital<PatientType> extends Hospital<PatientType>
 	public PatientType nextPatient() 
 	{
 		PatientType nextPatient = null; 
-		for (int i = 0; i < stackHospital.size(); i++)
+		for (int i = stackHospital.size() -1 ; i < stackHospital.size(); i--)
 		{
-			nextPatient= stackHospital.get(i); 
+			nextPatient = stackHospital.get(i); 
 		}
 		return nextPatient;
 	}
@@ -31,32 +31,46 @@ public class StackHospital<PatientType> extends Hospital<PatientType>
 	@Override
 	public PatientType treatNextPatient() 
 	{
-		return null;
+		PatientType treatNextPatient = null; 
+		for (int i = stackHospital.size() -1 ; i < stackHospital.size(); i--)
+		{
+			treatNextPatient = stackHospital.get(i); 
+			stackHospital.remove(i);
+		}
+		return treatNextPatient;  
 	}
 
 	@Override
 	public int numPatients() 
 	{
-		return 0;
+		int numPatients = stackHospital.size();
+		return numPatients; 
 	}
 
 	@Override
 	public String hospitalType() 
 	{
-		return null;
+		return "StackHospital"; 
 	}
 
 	@Override
 	public String allPatientInfo() 
 	{
-		return null;
+		String records = ""; 
+		for (int i = 0; i < stackHospital.size(); i++)
+		{
+			String patientRecord = stackHospital.get(i).toString(); 
+			records.concat(patientRecord);
+		}
+		
+		return records; 
 	}
 }
 
 
 
 
-
+/*
 LinkedList<String> authorsList = new LinkedList<String>();
 
 authorsList.add("Gamow");
@@ -64,3 +78,51 @@ authorsList.add("Penrose");
 authorsList.add("Hawking");
 
 authorsList.add(1, "Greene");
+
+-----------------
+
+import java.util.*;
+class TestCollection1{
+ public static void main(String args[]){
+ 
+  ArrayList<String> al=new ArrayList<String>();
+  al.add("Ravi");
+  al.add("Vijay");
+  al.add("Ravi");
+  al.add("Ajay");
+
+  Iterator itr=al.iterator();
+  while(itr.hasNext()){
+   System.out.println(itr.next());
+   
+   ---------------
+   
+   public E getFirst()
+   public E getLast()
+   public E removeFirst()
+   public E removeLast()
+   Throws:
+NoSuchElementException - if this list is empty
+
+--------------------
+
+ contains(value){
+    let node = this._head;
+    while(node){
+      if(node.value === value){
+        return true;
+      }
+      node = node.next;
+    }
+    return false;
+  }
+  
+  size() {
+    return this._length;
+  }
+  
+  }
+ }
+}
+
+*/

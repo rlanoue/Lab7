@@ -10,7 +10,7 @@ public class StackHospital<PatientType> extends Hospital<PatientType>
 	}
 
 	ArrayList<PatientType> stackHospital = new ArrayList<PatientType>(); 
-	
+
 	@Override
 	public void addPatient(PatientType patient) 
 	{			
@@ -20,24 +20,17 @@ public class StackHospital<PatientType> extends Hospital<PatientType>
 	@Override
 	public PatientType nextPatient() 
 	{
-		PatientType nextPatient = null; 
-		for (int i = stackHospital.size() -1 ; i < stackHospital.size(); i--)
-		{
-			nextPatient = stackHospital.get(i); 
-		}
-		return nextPatient;
+		int nextPatientIndex = stackHospital.size()-1;	
+
+		return stackHospital.get(nextPatientIndex);
 	}
 
 	@Override
 	public PatientType treatNextPatient() 
 	{
-		PatientType treatNextPatient = null; 
-		for (int i = stackHospital.size() -1 ; i < stackHospital.size(); i--)
-		{
-			treatNextPatient = stackHospital.get(i); 
-			stackHospital.remove(i);
-		}
-		return treatNextPatient;  
+		int nextPatientIndex = stackHospital.size()-1;	
+		stackHospital.remove(nextPatientIndex);
+		return stackHospital.get(nextPatientIndex);
 	}
 
 	@Override
@@ -62,7 +55,7 @@ public class StackHospital<PatientType> extends Hospital<PatientType>
 			String patientRecord = stackHospital.get(i).toString(); 
 			records.concat(patientRecord);
 		}
-		
+
 		return records; 
 	}
 }
@@ -84,7 +77,7 @@ authorsList.add(1, "Greene");
 import java.util.*;
 class TestCollection1{
  public static void main(String args[]){
- 
+
   ArrayList<String> al=new ArrayList<String>();
   al.add("Ravi");
   al.add("Vijay");
@@ -94,9 +87,9 @@ class TestCollection1{
   Iterator itr=al.iterator();
   while(itr.hasNext()){
    System.out.println(itr.next());
-   
+
    ---------------
-   
+
    public E getFirst()
    public E getLast()
    public E removeFirst()
@@ -116,13 +109,13 @@ NoSuchElementException - if this list is empty
     }
     return false;
   }
-  
+
   size() {
     return this._length;
   }
-  
+
   }
  }
 }
 
-*/
+ */

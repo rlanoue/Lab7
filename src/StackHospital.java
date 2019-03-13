@@ -3,7 +3,9 @@ import java.util.Stack;
 
 public class StackHospital<PatientType> extends Hospital<PatientType>
 {
-
+/**
+ * Initializes the array
+ */
 	public StackHospital()
 	{
 		stackHospital = new ArrayList<PatientType>();
@@ -11,12 +13,18 @@ public class StackHospital<PatientType> extends Hospital<PatientType>
 
 	ArrayList<PatientType> stackHospital; 
 
+	/**
+	 * Add a patient to the Hospital.
+	 */
 	@Override
 	public void addPatient(PatientType patient) 
 	{			
 		stackHospital.add(patient);
 	}
 
+	/**
+	 * Find and return the patient who will next be treated.
+	 */
 	@Override
 	public PatientType nextPatient() 
 	{
@@ -24,6 +32,9 @@ public class StackHospital<PatientType> extends Hospital<PatientType>
 		return stackHospital.get(nextPatientIndex);
 	}
 
+	/**
+	 * Treats the next patient and removes them from the Hospital.
+	 */
 	@Override
 	public PatientType treatNextPatient() 
 	{	
@@ -38,6 +49,10 @@ public class StackHospital<PatientType> extends Hospital<PatientType>
 			return null; 
 		}
 	}
+	
+	/**
+	 * Calculate and return the number of patients still in the hospital 
+	 */
 	@Override
 	public int numPatients() 
 	{
@@ -45,12 +60,18 @@ public class StackHospital<PatientType> extends Hospital<PatientType>
 		return numPatients; 
 	}
 
+	/**
+	 * Gives a String for the hospital type.
+	 */
 	@Override
 	public String hospitalType() 
 	{
 		return "StackHospital"; 
 	}
 
+	/**
+	 * Prints all patient information.
+	 */
 	@Override
 	public String allPatientInfo() 
 	{

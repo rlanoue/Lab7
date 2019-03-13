@@ -7,6 +7,9 @@ public class PersonTest {
 
 	SickPerson Hatfield = new SickPerson("Hatfield", 58, 4);
 	HealthyPerson McCoy = new HealthyPerson("McCoy", 47, "Invincible");
+	/**
+	 * test the constructor
+	 */
 	@Test
 	public void testPerson() {
 
@@ -25,6 +28,9 @@ public class PersonTest {
 		Assert.assertEquals("Flu Shot", Ariana.getReason());
 	}
 
+	/**
+	 * test the getname method
+	 */
 	@Test
 	public void testGetName() {
 
@@ -36,6 +42,9 @@ public class PersonTest {
 
 	}
 
+	/**
+	 * test the get the age method 
+	 */
 	@Test
 	public void testGetAge() {
 
@@ -46,7 +55,9 @@ public class PersonTest {
 		Assert.assertEquals(4, Carter.getAge());
 
 	}
-
+	/**
+	 * test the compareTo method
+	 */
 	@Test
 	public void testCompareTo() {
 
@@ -59,15 +70,15 @@ public class PersonTest {
 		Assert.assertEquals(-1, David.compareTo(Daniel));
 		Assert.assertEquals(-1, David.compareTo(Drake));
 		Assert.assertEquals(0, David.compareTo(David)); 
-		
+
 		Assert.assertEquals(1, Dean.compareTo(David));
 		Assert.assertEquals(-1, Dean.compareTo(Daniel));
 		Assert.assertEquals(-1, Dean.compareTo(Drake));
-		
+
 		Assert.assertEquals(1, Daniel.compareTo(David));
 		Assert.assertEquals(1, Daniel.compareTo(Dean));
 		Assert.assertEquals(0, Daniel.compareTo(Drake));
-		
+
 		Assert.assertEquals(1, Drake.compareTo(David));
 		Assert.assertEquals(1, Drake.compareToImpl(Dean));
 		Assert.assertEquals(0, Drake.compareTo(Daniel));
@@ -78,34 +89,33 @@ public class PersonTest {
 
 		Assert.assertEquals(1, Ethan.compareTo(Evan));
 		Assert.assertEquals(1, Ethan.compareTo(Eve));
-		
+
 		Assert.assertEquals(-1, Evan.compareTo(Ethan));
 		Assert.assertEquals(1, Evan.compareTo(Eve));
-		
+
 		Assert.assertEquals(-1, Eve.compareTo(Ethan));
 		Assert.assertEquals(-1, Eve.compareTo(Evan));
 		Assert.assertEquals(0, Eve.compareTo(Eve));
 
-		
-		
+
+
 		Assert.assertEquals(0, David.compareTo(Ethan));
 		Assert.assertEquals(0, Eve.compareTo(Dean));
 
 		Person SameName = new HealthyPerson("Finn", 21, "Misses his doctor");
 		Person SameName2 = new HealthyPerson("Finn", 22, "Frequent Urination"); 
-		
+
 		Assert.assertEquals(0, SameName.compareTo(SameName2));
 
 	}
-
+	/**
+	 * tests the to string methor return of person class
+	 */
 	@Test
 	public void testToString() {
 		String test = "Hatfield, a 58-year old. Severity level 4";
 		String actual = Hatfield.toString(); 
-		
-		//SickPerson Hatfield = new SickPerson("Hatfield", 58, 4);
-		//HealthyPerson McCoy = new HealthyPerson("McCoy", 47, "Invincible");
-		
+
 		Assert.assertEquals(test, actual);
 	}
 

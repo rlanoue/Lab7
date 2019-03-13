@@ -13,8 +13,9 @@ public class PriorityQueueHospital <PatientType extends Comparable <PatientType>
 
 	Iterator<PatientType> iter = priorityQueueHospital.iterator();
 
-	//ArrayList<PatientType> priorityClone = new ArrayList<PatientType>();
-
+	/**
+	 * Add a patient to the Hospital.
+	 */
 	@Override
 	public void addPatient(PatientType patient) 
 	{
@@ -24,11 +25,11 @@ public class PriorityQueueHospital <PatientType extends Comparable <PatientType>
 		int comparisonResult = patient.compareTo(nextPatient); 
 		int position = 0; 
 
-		
+
 		while(iter.hasNext() && !found)
 		{
 			comparisonResult = patient.compareTo(nextPatient);
-			
+
 			if (comparisonResult == -1)
 			{
 				priorityQueueHospital.add(position, patient);
@@ -40,33 +41,19 @@ public class PriorityQueueHospital <PatientType extends Comparable <PatientType>
 				comparisonResult = patient.compareTo(nextPatient);
 				iter.next(); 
 				found = true; 
-			}
-			
-			//priorityqueueHospital.apply.push(priorityClone); 
-			/*
-			 * priorityqueueHospital.clone().equals(priorityClone);//priorityClone; for (int
-			 * i = 0; i < priorityqueueHospital.size(); i++) { PatientType nextPatient =
-			 * priorityqueueHospital.get(i); int comparisonResult =
-			 * patient.compareTo(nextPatient);
-			 * 
-			 * 
-			 * priorityqueueHospital.add(i, patient); for (int j = i; j <
-			 * priorityqueueHospital.size(); j++) { priorityqueueHospital.add(i+1,
-			 * priorityClone.get(j)); } break; } else if (comparisonResult == 1) {
-			 * priorityqueueHospital.add(i+1, patient); for (int k = i; k <
-			 * priorityqueueHospital.size(); k++) { priorityqueueHospital.add(i+2,
-			 * priorityClone.get(k)); } break;
-			 */
-			}
-		}
-	
+			}}}
 
+	/**
+	 * Find and return the patient who will next be treated.
+	 */
 	@Override
 	public PatientType nextPatient() {
 		int nextPatientIndex = priorityQueueHospital.size()-1; 
 		return priorityQueueHospital.get(nextPatientIndex); 
 	}
-
+	/**
+	 * Treats the next patient and removes them from the Hospital.
+	 */
 	@Override
 	public PatientType treatNextPatient() {
 		int nextPatientIndex = priorityQueueHospital.size()-1;
@@ -74,17 +61,24 @@ public class PriorityQueueHospital <PatientType extends Comparable <PatientType>
 		return priorityQueueHospital.get(nextPatientIndex);
 	}
 
+	/**
+	 * Calculate and return the number of patients still in the hospital 
+	 */
 	@Override
 	public int numPatients() {
 		int numPatients = priorityQueueHospital.size(); 
 		return numPatients; 
 	}
-
+	/**
+	 * Gives a String for the hospital type.
+	 */
 	@Override
 	public String hospitalType() {
 		return "PriorityQueueHospital"; 
 	}
-
+	/**
+	 * Prints all patient information.
+	 */
 	@Override
 	public String allPatientInfo() {
 		String records = ""; 

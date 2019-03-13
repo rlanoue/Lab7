@@ -6,14 +6,18 @@ public class QueueHospital<PatientType> extends Hospital<PatientType> {
 	{
 		super();
 	} 
-	
+
 	ArrayList<PatientType> queueHospital = new ArrayList<PatientType>(); 
-	
+	/**
+	 * Add a patient to the Hospital.
+	 */
 	@Override
 	public void addPatient(PatientType patient) {
 		queueHospital.add(patient); 
 	}
-
+	/**
+	 * Find and return the patient who will next be treated.
+	 */
 	@Override
 	public PatientType nextPatient() {
 		// TODO Auto-generated method stub
@@ -24,7 +28,9 @@ public class QueueHospital<PatientType> extends Hospital<PatientType> {
 		}
 		return nextPatient;
 	}
-
+	/**
+	 * Treats the next patient and removes them from the Hospital.
+	 */
 	@Override
 	public PatientType treatNextPatient() {
 		// TODO Auto-generated method stub
@@ -36,19 +42,26 @@ public class QueueHospital<PatientType> extends Hospital<PatientType> {
 		}
 		return treatNextPatient;
 	}
-
+	/**
+	 * Calculate and return the number of patients still in the hospital
+	 */
 	@Override
 	public int numPatients() {
 		// TODO Auto-generated method stub
 		return queueHospital.size();
 	}
 
+	/**
+	 * Gives a String for the hospital type.
+	 */
 	@Override
 	public String hospitalType() {
 		// TODO Auto-generated method stub
 		return "QueueHospital";
 	}
-
+	/**
+	 * Prints all patient information.
+	 */
 	@Override
 	public String allPatientInfo() {
 		// TODO Auto-generated method stub

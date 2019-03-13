@@ -1,14 +1,16 @@
 
 public class HealthyPerson extends Person {
 
-	protected String reason; 
+	private String reason; 
 
 	public HealthyPerson(String name, int age, String reason) {
 		super(name, age);
 		// TODO Auto-generated constructor stub
 		this.reason = reason; 
 	}
-
+/**
+ * Implementation method for Person's compareTo method().
+ */
 	@Override
 	protected int compareToImpl(Person p) {
 		if 	((p instanceof HealthyPerson))	 
@@ -18,7 +20,6 @@ public class HealthyPerson extends Person {
 			{
 				if (getName().charAt(i) < p.getName().charAt(i))
 				{
-					//System.out.println(p.getName().charAt(i));
 					return 1;
 				}
 				else if (getName().charAt(i) > p.getName().charAt(i))
@@ -31,16 +32,21 @@ public class HealthyPerson extends Person {
 		{
 			return 0; 
 		}
-		//return 0;
-	}//
-
-	public String getReason()
-	{
-		return reason; 
+		return 0;
 	}
+		
 
+	 
+/**
+ * Gives some information about the HealthyPerson.
+ */
 	public String toString()
 	{
-		return String.format("%s Severity level %s", this.getName(), reason);
+		return String.format("%s Severity level %s", this.getName(), this.reason);
+	}
+
+	public String getReason() {
+		// TODO Auto-generated method stub
+		return this.reason;
 	}
 }

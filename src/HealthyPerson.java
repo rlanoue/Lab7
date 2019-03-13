@@ -11,38 +11,34 @@ public class HealthyPerson extends Person {
 
 	@Override
 	protected int compareToImpl(Person p) {
-		// TODO Auto-generated method stub
-
-
-
-		if (!(p instanceof HealthyPerson))
+		if 	((p instanceof HealthyPerson))	 
 		{
-			return 0; 		
-		}
-		else 
-		{
-			HealthyPerson unbanished = (HealthyPerson) p;
-
-			if (p.getName().compareTo(unbanished.getName()) > 0)
+		
+			for (int i = 0; i < p.getName().length(); i++)
 			{
-				return -1; 
-			}
-			else if (p.getName().compareTo(unbanished.getName()) < 0)
-			{
-				return 1; 
-			}
-			else
-			{
-				return 0; 
+				if (getName().charAt(i) < p.getName().charAt(i))
+				{
+					//System.out.println(p.getName().charAt(i));
+					return 1;
+				}
+				else if (getName().charAt(i) > p.getName().charAt(i))
+				{
+					return -1; 
+				}
 			}
 		}
+		else
+		{
+			return 0; 
+		}
+		return 2;
+	}//
 
-	}
 	public String getReason()
 	{
 		return reason; 
 	}
-	
+
 	public String toString()
 	{
 		return String.format("%s Severity level %d", super.toString(), getReason());

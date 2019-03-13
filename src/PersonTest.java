@@ -5,6 +5,8 @@ import org.junit.Test;
 
 public class PersonTest {
 
+	SickPerson Hatfield = new SickPerson("Hatfield", 58, 4);
+	HealthyPerson McCoy = new HealthyPerson("McCoy", 47, "Invincible");
 	@Test
 	public void testPerson() {
 
@@ -71,7 +73,7 @@ public class PersonTest {
 		Assert.assertEquals(0, Drake.compareTo(Daniel));
 
 		Person Ethan = new HealthyPerson("Ethan", 34, "Removal of a cast");
-		Person Evan = new HealthyPerson("Evan", 38, "Allergies");
+		Person Evan = new HealthyPerson("Evan", 38, "Allergic to clowns");
 		Person Eve = new HealthyPerson("Eve", 31, "Thinks she has super rare disease from being on web.md too much"); 
 
 		Assert.assertEquals(1, Ethan.compareTo(Evan));
@@ -80,8 +82,8 @@ public class PersonTest {
 		Assert.assertEquals(-1, Evan.compareTo(Ethan));
 		Assert.assertEquals(1, Evan.compareTo(Eve));
 		
-		Assert.assertEquals(1, Eve.compareTo(Ethan));
-		Assert.assertEquals(1, Eve.compareTo(Evan));
+		Assert.assertEquals(-1, Eve.compareTo(Ethan));
+		Assert.assertEquals(-1, Eve.compareTo(Evan));
 		Assert.assertEquals(0, Eve.compareTo(Eve));
 
 		
@@ -98,9 +100,13 @@ public class PersonTest {
 
 	@Test
 	public void testToString() {
-
-		//Assert.assertEquals("%s ");
-		fail("Not yet implemented");
+		String test = "Hatfield, a 58-year old. Severity level 4";
+		String actual = Hatfield.toString(); 
+		
+		//SickPerson Hatfield = new SickPerson("Hatfield", 58, 4);
+		//HealthyPerson McCoy = new HealthyPerson("McCoy", 47, "Invincible");
+		
+		Assert.assertEquals(test, actual);
 	}
 
 }

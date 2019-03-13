@@ -31,7 +31,7 @@ public class HealthyPerson extends Person {
 		{
 			return 0; 
 		}
-		return 2;
+		//return 0;
 	}//
 
 	public String getReason()
@@ -41,6 +41,6 @@ public class HealthyPerson extends Person {
 
 	public String toString()
 	{
-		return String.format("%s Severity level %d", super.toString(), getReason());
+		return String.format("%s Severity level %s", this.getName(), reason);
 	}
 }

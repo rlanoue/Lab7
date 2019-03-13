@@ -6,10 +6,10 @@ public class StackHospital<PatientType> extends Hospital<PatientType>
 
 	public StackHospital()
 	{
-		super();
+		stackHospital = new ArrayList<PatientType>();
 	}
 
-	ArrayList<PatientType> stackHospital = new ArrayList<PatientType>(); 
+	ArrayList<PatientType> stackHospital; 
 
 	@Override
 	public void addPatient(PatientType patient) 
@@ -21,18 +21,23 @@ public class StackHospital<PatientType> extends Hospital<PatientType>
 	public PatientType nextPatient() 
 	{
 		int nextPatientIndex = stackHospital.size()-1;	
-
 		return stackHospital.get(nextPatientIndex);
 	}
 
 	@Override
 	public PatientType treatNextPatient() 
-	{
+	{	
 		int nextPatientIndex = stackHospital.size()-1;	
-		stackHospital.remove(nextPatientIndex);
-		return stackHospital.get(nextPatientIndex);
+		
+		if (!(stackHospital.isEmpty()))
+		{
+			stackHospital.remove(nextPatientIndex);
+			return stackHospital.get(nextPatientIndex);
+		}
+		else {
+			return null; 
+		}
 	}
-
 	@Override
 	public int numPatients() 
 	{
@@ -49,14 +54,13 @@ public class StackHospital<PatientType> extends Hospital<PatientType>
 	@Override
 	public String allPatientInfo() 
 	{
-		String records = ""; 
+		String patientRecord  = ""; 
 		for (int i = 0; i < stackHospital.size(); i++)
 		{
-			String patientRecord = stackHospital.get(i).toString(); 
-			records.concat(patientRecord);
+			patientRecord += stackHospital.get(i).toString(); 
 		}
 
-		return records; 
+		return patientRecord; 
 	}
 }
 
